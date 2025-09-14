@@ -1,0 +1,33 @@
+{
+    "name": "GC Extension",
+    "version": "1.0.0",
+    "description": "A zimbel extension .",
+    "manifest_version": 3,
+    "permissions": [
+        "activeTab", "storage", "scripting", 
+        "desktopCapture"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["*://mail.google.com/*"],
+            "js": ["content.js"],
+            "css": ["content.css"],
+            "run_at": "document_idle"
+        }
+    ],
+    "host_permissions": [
+        "http://localhost:8080/*",
+        "*://mail.google.com/*"
+    ], 
+    "web_accessible_resources": [
+        {
+            "resources": ["icons/*"],
+            "matches": ["*://mail.google.com/*"]
+        }
+    ],
+    "action": {
+        "default_title": "Zimbel",
+        "default_popup": "zimbel.html",
+        "default_icon": "icon.png"
+    }
+}
